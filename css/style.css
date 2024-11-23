@@ -1,0 +1,57 @@
+.background {
+    background-size: cover;
+    background-image: url(../html/images/rice\ field\ background\ 1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    
+}
+.Instructions{
+    font-size: 30px;
+    padding-bottom: 30px;
+    
+}
+body{
+    font-family: 'Gilroy-Light', sans-serif;
+        color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+        
+}
+.title {
+    font-size: 40px;
+    padding-bottom: 60px;
+}
+h1{
+    padding-bottom: 30px;
+}
+h2{
+    padding-bottom: 20px;
+}
+ul{
+    padding-bottom: 10px;
+}
+
+.start-btn {
+    background-color: #180df3; 
+    border-bottom: none;
+    padding: 10px 30px;
+    font-size: 16px;
+    border-radius: 50px; 
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100px;
+    margin: 0;
+    appearance: none;
+    
+}
+.start-btn:hover {
+    background-color: #4198f4; 
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); 
+    transform: translateY(-2px); 
+}
