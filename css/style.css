@@ -1,4 +1,4 @@
-.background {
+#game-intro{
     background-size: cover;
     background-image: url(../html/images/rice\ field\ background\ 1.jpg);
     background-repeat: no-repeat;
@@ -6,39 +6,40 @@
     height: 100vh;
     margin: 0;
     padding: 0;
-    
-}
-.Instructions{
-    font-size: 30px;
-    padding-bottom: 30px;
-    
-}
-body{
-    font-family: 'Gilroy-Light', sans-serif;
-        color: black;
+    color: black;
         display: flex;
         justify-content: center;
         align-items: center;
         text-align: center;
         flex-direction: column;
-        
 }
+.Instructions{
+    font-size: 30px;
+    padding-bottom: 30px;
+    font-family:"Rasa", serif; ;
+}
+
 .title {
-    font-size: 40px;
+    font-size: 70px;
     padding-bottom: 60px;
+    font-family: "Rubik Puddles", system-ui;
+    font-weight: 400;
+  font-style: normal;
+
 }
 h1{
     padding-bottom: 30px;
 }
-h2{
-    padding-bottom: 20px;
+.Objective{
+    padding-bottom: 30px;
 }
-ul{
-    padding-bottom: 10px;
+.Controls{
+    padding-bottom: 30px;
 }
 
-.start-btn {
-    background-color: #180df3; 
+
+.start-btn{
+    background-color: #4b42f4; 
     border-bottom: none;
     padding: 10px 30px;
     font-size: 16px;
@@ -55,3 +56,22 @@ ul{
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); 
     transform: translateY(-2px); 
 }
+#game-container {
+    display:none;
+    width: 100vw;
+    padding: 20px 0px;
+    justify-content: center;
+  }
+  #game-screen {
+    display: none;
+    align-content: center;
+    padding: 20px 0px;
+    overflow: hidden;
+    position: relative;
+    background-image: url(../html/images/rice\ field\ background\ 1.jpg);
+    background-size: cover;
+    animation: slide 5s linear infinite;
+  }
+  #game-end {
+    display: none;
+  }

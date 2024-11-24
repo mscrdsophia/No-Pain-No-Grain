@@ -4,34 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Puddles&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rasa:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
     <title>DOCUMENT</title>
 </head>
-<body class="background">
-    
+<body>
+    <div id="game-intro">
     <header class="title">
         No Pain No Grain
     </header>
     <div class="Instructions">
-         <h1> Instructions</h1>
-         <h2>Objective</h2>
+         <h1> Instructions:</h1>
+         <div class="Objective">
+           <h2>Objective</h2>
          <ul>
             <li>Collect healthy food to increase your life and survive as long as possible.</li>
             <li>Avoid collecting junk food, as it will decrease your life.</li>
-         </ul>
-         <h2>Controls</h2>
+         </ul> 
+         </div>
+         <div class="Controls">
+           <h2>Controls</h2>
          <ul>
             <li>Use the mouse to move your character or cursor.</li>
-         </ul>
-         <h2>Scoring</h2>
+         </ul> 
+         </div>
+         <div class="Scoring">
+           <h2>Scoring</h2>
          <ul>
             <li>Your score increases the longer you stay alive.</li>
             
-         </ul>
+         </ul> 
+         </div>
+         
     </div>
 
     <div>
        <button class="start-btn">Start </button> 
+    </div>
+    </div>
+    <div id="game-container">
+      <div>
+         <h2>Stats</h2>
+         <p>Score: <span id="score">0</span></p>
+      </div>
+      <div id="game-screen"></div>
+    </div>
+    <div id="game-end">
+      <h1>Game Over</h1>
+        <br />
+        <button id="restart-button">Restart</button>
+      </div>
     </div>
     
 </body>
