@@ -12,6 +12,7 @@ window.onload = function () {
       
       game = new Game(); // added
       game.start(); // added
+
     }
     
     function handleKeydown(event) {

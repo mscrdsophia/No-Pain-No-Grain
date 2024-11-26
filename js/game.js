@@ -8,7 +8,7 @@ class Game {
         500,
         100,
         150,
-        "./images/car.png");
+        "../images/bowl.png");
       this.height = 600;
       this.width = 500;
       this.obstacles = [];
@@ -33,8 +33,9 @@ class Game {
   
       // Runs the gameLoop on a fequency of 60 times per second. Also stores the ID of the interval.
       this.gameIntervalId = setInterval(() => {
-        this.gameLoop()
+        this.gameLoop();
       }, this.gameLoopFrequency)
+
     }
   
     gameLoop() {
