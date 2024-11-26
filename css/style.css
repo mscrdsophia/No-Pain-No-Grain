@@ -38,7 +38,7 @@ h1{
 }
 
 
-.start-btn{
+#start-btn{
     background-color: #4b42f4; 
     border-bottom: none;
     padding: 10px 30px;
@@ -68,10 +68,100 @@ h1{
     padding: 20px 0px;
     overflow: hidden;
     position: relative;
-    background-image: url(../html/images/rice\ field\ background\ 1.jpg);
+    background-image: url(/images/rice\ field\ background\ 1.jpg);
     background-size: cover;
     animation: slide 5s linear infinite;
   }
   #game-end {
     display: none;
   }
+  
+  @keyframes slide {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -500px 0;
+    }
+  }
+
+
+  /* body {
+    padding: 0;
+    text-align: center;
+  }
+  
+  #game-intro {
+    background-size: cover;
+    background-image: url(../images/rice\ field\ background\ 1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+  }
+  
+  #game-container {
+   display:none;
+    width: 100vw;
+    padding: 20px 0px;
+    justify-content: center;
+  }
+  
+  #game-screen {
+     display: none;
+    align-content: center;
+    padding: 20px 0px;
+    overflow: hidden;
+    position: relative;
+    background-image: url(/images/black-square.webp);
+    background-size: cover;
+    animation: slide 5s linear infinite;
+  }
+  
+  @keyframes slide {
+    0% {
+      background-position: 0 -1000px;
+    }
+    95% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 0 50px;
+    }
+  }
+  
+  #game-end {
+    display: none;
+  }
+  
+ .Instructions{
+    font-size: 30px;
+    padding-bottom: 30px;
+    font-family:"Rasa", serif; ;
+}
+  
+  .logo-img {
+    width: 350px;
+  }
+  
+  .arrows-img {
+    width: 150px;
+  }
+  
+  body button {
+    font-size: 30px;
+    background-color: #870007;
+    color: #fff;
+    padding: 20px 40px;
+    border: 0;
+    box-shadow: 0;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  } */
