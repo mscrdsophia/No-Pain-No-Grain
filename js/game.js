@@ -9,8 +9,8 @@ class Game {
         100,
         150,
         "../images/bowl.png");
-      this.height = 600;
-      this.width = 500;
+      this.height = 1000;
+      this.width = 1000;
       this.obstacles = [];
       this.score = 0;
       this.lives = 3;

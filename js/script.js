@@ -49,3 +49,34 @@ window.onload = function () {
     // Add the handleKeydown function as an event listener for the keydown event
     window.addEventListener("keydown", handleKeydown);
   };
+
+  let progress = 0;
+
+function updateProgress(change) {
+    // Update the progress value
+    progress += change;
+
+    // Clamp progress between 0% and 100%
+    if (progress < 0) progress = 0;
+    if (progress > 100) progress = 100;
+
+    // Update the visual progress bar
+    const progressBar = document.getElementById("progress-bar");
+    progressBar.style.width = `${progress}%`;
+}
+
+//progress = 0  // Start progress
+
+//function updateProgress(obstacleType):
+    //if obstacleType == "Obstacle1":
+       //progress += 5
+    //elif obstacleType == "Obstacle2":
+       // progress -= 5
+
+    // Clamp progress
+    //if progress < 0:
+        //progress = 0
+    //elif progress > 100:
+       //progress = 100
+
+    //displayProgress(progress)
