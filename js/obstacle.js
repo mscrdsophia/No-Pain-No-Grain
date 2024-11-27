@@ -7,7 +7,7 @@ class Obstacle {
       this.height = 150;
       this.element = document.createElement("img");
   
-      this.element.src = "./images/redCar.png";
+      this.element.src = "/images/fastfood 1.avif";
       this.element.style.position = "absolute";
       this.element.style.width = `${this.width}px`;
       this.element.style.height = `${this.height}px`;
