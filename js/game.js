@@ -26,7 +26,7 @@ class Game {
   
       // Hide the start screen
       this.startScreen.style.display = "none";
-      document.getElementById('game-container').style.display = 'flex';
+      document.getElementById("game-container").style.display = 'flex';
       
       // Show the game screen
       this.gameScreen.style.display = "block";
