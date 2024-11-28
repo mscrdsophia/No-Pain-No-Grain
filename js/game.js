@@ -36,6 +36,7 @@ class Game {
         this.gameLoop();
       }, this.gameLoopFrequency)
 
+      this.startScoreTimer();
     }
   
     gameLoop() {
@@ -47,6 +48,24 @@ class Game {
       if (this.gameIsOver) {
         clearInterval(this.gameIntervalId)
       }
+    }
+
+    startScoreTimer() {
+      this.scoreIntervalId = setInterval(() => {
+        if (!this.gameIsOver) {
+          this.score++;
+          this.updateScoreDisplay();
+        }
+      }, 1000); 
+    }
+
+    stopScoreTimer() {
+      clearInterval(this.scoreIntervalId);
+    }
+    
+    updateScoreDisplay() {
+      const scoreElement = document.getElementById("score"); 
+      scoreElement.textContent = `${this.score}`;
     }
   
     update() { // keep track of the different parts of the game updates
@@ -67,13 +86,11 @@ class Game {
           i--;
         } // If the obstacle is off the screen (at the bottom)
         else if (obstacle.top > this.height) {
-          // Increase the score by 1
-          this.score++;
-          // Remove the obstacle from the DOM
+         
           obstacle.element.remove();
-          // Remove obstacle object from the array
+        
           this.obstacles.splice(i, 1);
-          // Update the counter variable to account for the removed obstacle
+          
           i--;
         }
       }
