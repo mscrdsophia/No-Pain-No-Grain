@@ -8,7 +8,7 @@ class Game {
         500,
         100,
         150,
-        "../images/bowl.png");
+        "../images/newBowl.png");
       this.height = 1000;
       this.width = 1000;
       this.obstacles = [];
@@ -80,6 +80,7 @@ class Game {
 
       if (Math.random() > 0.98 && this.obstacles.length < 5) {
         this.obstacles.push(new Obstacle(this.gameScreen));
+        this.obstacles.push(new Obstacle2(this.gameScreen));
       }
     }
   }
