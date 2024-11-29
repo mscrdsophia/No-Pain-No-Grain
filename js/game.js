@@ -30,24 +30,19 @@ class Game {
       
       // Show the game screen
       this.gameScreen.style.display = "block";
-  
-      // Runs the gameLoop on a fequency of 60 times per second. Also stores the ID of the interval.
-      this.gameIntervalId = setInterval(() => {
-        this.gameLoop();
-      }, this.gameLoopFrequency)
+
+      this.gameLoop();
 
       this.startScoreTimer();
     }
   
     gameLoop() {
       console.log("in the game loop");
-      
+      if (this.gameIsOver) return;
+
       this.update();
-  
-      // If "gameIsOver" is set to "true" clear the interval to stop the loop
-      if (this.gameIsOver) {
-        clearInterval(this.gameIntervalId)
-      }
+      requestAnimationFrame(() => this.gameLoop());
+
     }
 
     startScoreTimer() {
@@ -68,36 +63,47 @@ class Game {
       scoreElement.textContent = `${this.score}`;
     }
   
-    update() { // keep track of the different parts of the game updates
+   update() { // keep track of the different parts of the game updates
       console.log("in the update");
       this.player.move();
-
-      for (let i = 0; i < this.obstacles.length; i++) {
-        const obstacle = this.obstacles[i];
-        obstacle.move();
-        if (this.player.didCollide(obstacle)) {
-          // Remove the obstacle element from the DOM
-          obstacle.element.remove();
-          // Remove obstacle object from the array
-          this.obstacles.splice(i, 1);
-          // Reduce player's lives by 1
-          this.lives--;
-          // Update the counter variable to account for the removed obstacle
-          i--;
-        } // If the obstacle is off the screen (at the bottom)
-        else if (obstacle.top > this.height) {
-         
-          obstacle.element.remove();
+     
+          for (let i = 0; i < this.obstacles.length; i++) {
+            const obstacle = this.obstacles[i];
+            obstacle.move();
         
-          this.obstacles.splice(i, 1);
-          
-          i--;
-        }
-      }
+            if (this.player.didCollide(obstacle)) {
+                updateProgress(0, obstacle.type); // Pass the obstacle type
+        
+                // Remove the obstacle
+                obstacle.element.remove();
+                this.obstacles.splice(i, 1);
+                i--;
+            } else if (obstacle.top > this.height) {
+                this.score++;
+                obstacle.element.remove();
+                this.obstacles.splice(i, 1);
+                i--;
+            }
 
-      if (Math.random() > 0.98 && this.obstacles.length < 5) {
-        this.obstacles.push(new Obstacle(this.gameScreen));
-        this.obstacles.push(new Obstacle2(this.gameScreen));
+        }
+      
+        if (Math.random() > 0.98 && this.obstacles.length < 5) {
+          // Randomly decide the obstacle type
+          const obstacleType = Math.random() > 0.5 ? "obstacle" : "obstacle2";
+          this.obstacles.push(new Obstacle(this.gameScreen, obstacleType));
       }
-    }
+      
+}
+
+checkCollision(player, obstacle) {
+  if (
+    player.x < obstacle.x + obstacle.width &&
+    player.x + player.width > obstacle.x &&
+    player.y < obstacle.y + obstacle.height &&
+    player.y + player.height > obstacle.y
+) {
+  updateProgress(obstacle.type);
+ }
+
   }
+}
