@@ -33,6 +33,7 @@ class Game {
 
       this.gameLoop();
 
+      this.startScoreTimer();
     }
   
     gameLoop() {
@@ -43,11 +44,28 @@ class Game {
       requestAnimationFrame(() => this.gameLoop());
 
     }
+
+    startScoreTimer() {
+      this.scoreIntervalId = setInterval(() => {
+        if (!this.gameIsOver) {
+          this.score++;
+          this.updateScoreDisplay();
+        }
+      }, 1000); 
+    }
+
+    stopScoreTimer() {
+      clearInterval(this.scoreIntervalId);
+    }
+    
+    updateScoreDisplay() {
+      const scoreElement = document.getElementById("score"); 
+      scoreElement.textContent = `${this.score}`;
+    }
   
    update() { // keep track of the different parts of the game updates
       console.log("in the update");
       this.player.move();
-
      
           for (let i = 0; i < this.obstacles.length; i++) {
             const obstacle = this.obstacles[i];
@@ -66,6 +84,7 @@ class Game {
                 this.obstacles.splice(i, 1);
                 i--;
             }
+
         }
       
         if (Math.random() > 0.98 && this.obstacles.length < 5) {
