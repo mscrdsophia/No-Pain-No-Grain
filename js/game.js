@@ -87,11 +87,30 @@ class Game {
 
         }
       
-        if (Math.random() > 0.98 && this.obstacles.length < 5) {
+       /* if (Math.random() > 0.98 && this.obstacles.length < 10) {
           // Randomly decide the obstacle type
           const obstacleType = Math.random() > 0.5 ? "obstacle" : "obstacle2";
           this.obstacles.push(new Obstacle(this.gameScreen, obstacleType));
-      }
+      }*/
+          if (Math.random() > 0.98 && this.obstacles.length < 10) {
+            const randomType = Math.random();
+            if (randomType < 0.4) {
+                this.obstacles.push(new Obstacle(this.gameScreen, "obstacle"));
+            } else if (randomType < 0.6) {
+                this.obstacles.push(new Obstacle2(this.gameScreen));
+            } else if (randomType < 0.7){
+                this.obstacles.push(new Obstacle3(this.gameScreen));
+            }
+              else if (randomType < 0.8){
+              this.obstacles.push(new Obstacle4(this.gameScreen));
+          }
+              else if (randomType < 0.9){
+            this.obstacles.push(new Obstacle5(this.gameScreen));
+        }
+            else {
+              this.obstacles.push(new Obstacle6(this.gameScreen));
+          }
+        }
       
 }
 
