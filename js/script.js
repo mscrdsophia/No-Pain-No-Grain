@@ -58,7 +58,19 @@ function updateProgress(change, obstacleType) {
        progress += 5;
     }
     else if (obstacleType == "obstacle2"){
-       progress -= 5;
+       progress += 7;
+    }
+    else if (obstacleType == "obstacle3"){
+      progress += 10;
+   }
+    else if (obstacleType == "obstacle4"){
+      progress -= 5;
+    }
+    else if (obstacleType == "obstacle5"){
+      progress -= 7;
+    }
+    else if (obstacleType == "obstacle6"){
+      progress -= 10;
     }
     progress = Math.max(0, Math.min(progress, 100));
 
