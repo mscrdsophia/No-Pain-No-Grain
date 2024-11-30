@@ -206,7 +206,7 @@ winGame(){
   this.gameScreen.style.display = "none";
   
 
-  const finalScoreElement = document.getElementById("final-score");
+  const finalScoreElement = document.getElementById("final-score-win");
     finalScoreElement.textContent = this.score;
 
     this.gameScreen.style.display = "none";
