@@ -13,10 +13,10 @@ class Game {
       this.width = 1000;
       this.obstacles = [];
       this.score = 0;
-      this.lives = 3;
       this.gameIsOver = false;
       this.gameIntervalId;
       this.gameLoopFrequency = Math.round(1000/60); // 60fps
+      this.health = 5;
     }
   
     start() {
@@ -63,6 +63,33 @@ class Game {
       scoreElement.textContent = `${this.score}`;
     }
   
+    updateHealth(obstacleType) {
+          if (obstacleType == "obstacle"){
+             this.health += 5;
+          }
+          else if (obstacleType == "obstacle2"){
+             this.health += 7;
+          }
+          else if (obstacleType == "obstacle3"){
+            this.health += 10;
+         }
+          else if (obstacleType == "obstacle4"){
+            this.health -= 5;
+          }
+          else if (obstacleType == "obstacle5"){
+            this.health -= 7;
+          }
+          else if (obstacleType == "obstacle6"){
+            this.health -= 10;
+          }
+          this.health = Math.max(0, Math.min(this.health, 100));
+      
+          
+          const progressBar = document.getElementById("progress-bar");
+          progressBar.style.width = `${this.health}%`;
+      }
+      
+
    update() { // keep track of the different parts of the game updates
       console.log("in the update");
       this.player.move();
@@ -72,7 +99,7 @@ class Game {
             obstacle.move();
         
             if (this.player.didCollide(obstacle)) {
-                updateProgress(0, obstacle.type); // Pass the obstacle type
+                this.updateHealth(obstacle.type); // Pass the obstacle type
         
                 // Remove the obstacle
                 obstacle.element.remove();
@@ -120,12 +147,41 @@ class Game {
         newObstacle.element.remove();
     }
 }
-
-        
-      
+if (this.health === 0){
+  this.endGame();
 }
+//    let progress = 0;
 
-checkCollision(player, obstacle) {
+// function updateProgress(change, obstacleType) {
+    
+//     if (obstacleType == "obstacle"){
+//        progress += 5;
+//     }
+//     else if (obstacleType == "obstacle2"){
+//        progress += 7;
+//     }
+//     else if (obstacleType == "obstacle3"){
+//       progress += 10;
+//    }
+//     else if (obstacleType == "obstacle4"){
+//       progress -= 5;
+//     }
+//     else if (obstacleType == "obstacle5"){
+//       progress -= 7;
+//     }
+//     else if (obstacleType == "obstacle6"){
+//       progress -= 10;
+//     }
+//     progress = Math.max(0, Math.min(progress, 100));
+
+    
+//     const progressBar = document.getElementById("progress-bar");
+//     progressBar.style.width = `${progress}%`;     
+      
+// }
+
+}
+checkCollision(player, obstacle){
   if (
     player.x < obstacle.x + obstacle.width &&
     player.x + player.width > obstacle.x &&
@@ -145,5 +201,15 @@ checkCollision(player, obstacle) {
         obstacle1.top > obstacle2.top + obstacle2.height    // Obstacle1 is below
     );
 }
+endGame() {
+  this.player.element.remove();
+  this.obstacles.forEach(obstacle => obstacle.element.remove());
 
+  this.gameIsOver = true;
+
+  // Hide game screen
+  this.gameScreen.style.display = "none";
+  // Show end game screen
+  this.gameEndScreen.style.display = "block"; 
+}
 }
