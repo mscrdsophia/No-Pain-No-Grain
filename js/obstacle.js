@@ -14,15 +14,15 @@ class Obstacle {
           type === "obstacle" 
           ? "/images/grainsOfRice.png" 
           : type === "obstacle2" 
-          ? "/images/grain 1.jpg"
+          ? "/images/vegetable.png"
           : type === "obstacle3" 
           ? "/images/hotDog.png"
           : type === "obstacle4"
-          ? "/images/fastfood 1.avif"
+          ? "/images/fries.png"
           : type === "obstacle5"
-          ? "/images/cola.jpg"
+          ? "/images/cola.png"
           : type === "obstacle6"
-          ? "/images/milk.webp"
+          ? "/images/beef.png"
           : "/images/default.png";
   
           this.element.style.position = "absolute";
