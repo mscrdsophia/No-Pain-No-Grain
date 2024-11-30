@@ -211,5 +211,12 @@ endGame() {
   this.gameScreen.style.display = "none";
   // Show end game screen
   this.gameEndScreen.style.display = "block"; 
+
+  const finalScoreElement = document.getElementById("final-score");
+    finalScoreElement.textContent = this.score;
+
+    this.gameScreen.style.display = "none";
+    document.getElementById("game-container").style.display = "none";
+    document.getElementById("game-end").style.display = "flex";
 }
 }
