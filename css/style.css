@@ -153,6 +153,61 @@ h1{
     transform: translateY(-2px); 
 }
 
+#win-game {
+  display: none;
+   justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url(../images/riceField2.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      backdrop-filter: blur(5px);
+      color: white;
+      z-index: 10;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    #restart-button-win{
+      background-color: #4b42f4; 
+      border-bottom: none;
+      padding: 10px 30px;
+      font-size: 16px;
+      border-radius: 50px; 
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width: 100px;
+      margin: 0;
+      appearance: none;
+    }
+  
+    #restart-button-win:hover {
+      background-color: #4198f4; 
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); 
+      transform: translateY(-2px); 
+  }
+
+.victory {
+    font-size: 150px;
+    margin-bottom: 20px;
+    font-family: "Rubik Puddles", cursive;
+    color: #ffc107;
+    backdrop-filter: blur(10px);
+  }
+
+.win-message {
+  font-size: 60px;
+  margin-bottom: 20px;
+  font-family:"Rasa", serif; 
+  color: #ffc107;
+  backdrop-filter: blur(10px);
+}
+
   /* @keyframes slide {
     0% {
         background-position: 0 0;
