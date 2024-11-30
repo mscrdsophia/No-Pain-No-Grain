@@ -19,6 +19,7 @@ class Player {
       this.element.style.top = `${top}px`;
   
       this.gameScreen.appendChild(this.element);
+      
     }
 
     move() {
@@ -59,8 +60,7 @@ class Player {
       didCollide(obstacle) {
         const playerRect = this.element.getBoundingClientRect();
         const obstacleRect = obstacle.element.getBoundingClientRect();
-    
-        if (
+       if (
           playerRect.left < obstacleRect.right &&
           playerRect.right > obstacleRect.left &&
           playerRect.top < obstacleRect.bottom &&
@@ -70,7 +70,8 @@ class Player {
         } else {
           return false;
         }
-         
+        
       }
      
+      
   }

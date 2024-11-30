@@ -16,13 +16,13 @@ class Obstacle {
           : type === "obstacle2" 
           ? "/images/vegetable.png"
           : type === "obstacle3" 
-          ? "/images/hotDog.png"
+          ? "/images/beef.png"
           : type === "obstacle4"
           ? "/images/fries.png"
           : type === "obstacle5"
           ? "/images/cola.png"
           : type === "obstacle6"
-          ? "/images/beef.png"
+          ? "/images/hotDog.png"
           : "/images/default.png";
   
           this.element.style.position = "absolute";
@@ -73,3 +73,4 @@ class Obstacle6 extends Obstacle {
     super (gameScreen, "obstacle6");
   }
 }
+

@@ -87,30 +87,41 @@ class Game {
 
         }
       
-       /* if (Math.random() > 0.98 && this.obstacles.length < 10) {
-          // Randomly decide the obstacle type
-          const obstacleType = Math.random() > 0.5 ? "obstacle" : "obstacle2";
-          this.obstacles.push(new Obstacle(this.gameScreen, obstacleType));
-      }*/
+      
+         
+
           if (Math.random() > 0.98 && this.obstacles.length < 10) {
             const randomType = Math.random();
+            let newObstacle;
+    
+            // Decide obstacle type
             if (randomType < 0.4) {
-                this.obstacles.push(new Obstacle(this.gameScreen, "obstacle"));
+                newObstacle = new Obstacle(this.gameScreen, "obstacle");
             } else if (randomType < 0.6) {
-                this.obstacles.push(new Obstacle2(this.gameScreen));
-            } else if (randomType < 0.7){
-                this.obstacles.push(new Obstacle3(this.gameScreen));
+                newObstacle = new Obstacle2(this.gameScreen);
+            } else if (randomType < 0.7) {
+                newObstacle = new Obstacle3(this.gameScreen);
+            } else if (randomType < 0.8) {
+                newObstacle = new Obstacle4(this.gameScreen);
+            } else if (randomType < 0.9){
+                newObstacle = new Obstacle5(this.gameScreen);
             }
-              else if (randomType < 0.8){
-              this.obstacles.push(new Obstacle4(this.gameScreen));
-          }
-              else if (randomType < 0.9){
-            this.obstacles.push(new Obstacle5(this.gameScreen));
-        }
             else {
-              this.obstacles.push(new Obstacle6(this.gameScreen));
-          }
-        }
+              newObstacle = new Obstacle6(this.gameScreen);
+            }
+
+    // Ensure no overlap before adding the new obstacle
+    const isOverlapping = this.obstacles.some((obstacle) => this.checkOverlap(obstacle, newObstacle));
+
+    if (!isOverlapping) {
+        this.obstacles.push(newObstacle);
+    } else {
+        // Remove the newObstacle DOM element if it overlaps
+        newObstacle.element.remove();
+    }
+}
+
+        
       
 }
 
@@ -125,4 +136,14 @@ checkCollision(player, obstacle) {
  }
 
   }
+
+  checkOverlap(obstacle1, obstacle2) {
+    return !(
+        obstacle1.left + obstacle1.width < obstacle2.left || // Obstacle1 is to the left
+        obstacle1.left > obstacle2.left + obstacle2.width || // Obstacle1 is to the right
+        obstacle1.top + obstacle1.height < obstacle2.top || // Obstacle1 is above
+        obstacle1.top > obstacle2.top + obstacle2.height    // Obstacle1 is below
+    );
+}
+
 }
