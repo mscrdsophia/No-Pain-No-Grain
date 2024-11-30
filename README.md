@@ -43,3 +43,21 @@ The game ends when your life meter reaches zero. Try again to beat your best sco
 <br>
 
 ## States 
+- Game intro
+- Game Screen
+- Game Over Screen 
+- Winning Screen
+
+<br>
+
+## Project Structure
+<br>
+
+## game.js
+- start();
+- gameLoop();
+- startScoreTimer();
+- stopScoreTimer();
+- updateScoreDisplay();
+- update();
+- checkCollision(player, obstacle);
