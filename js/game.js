@@ -51,7 +51,7 @@ class Game {
           this.score++;
           this.updateScoreDisplay();
         }
-      }, 1000); 
+      }, 100); 
     }
 
     stopScoreTimer() {

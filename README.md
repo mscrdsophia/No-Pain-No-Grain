@@ -1,6 +1,6 @@
 # No-Pain-No-Grain
 
-Game Description
+## Game Description
 
 Dive into a fast-paced and addictive game where your survival depends on your choices! Healthy Bites challenges your reflexes and decision-making skills as you collect food to stay alive.
 
@@ -9,8 +9,9 @@ Use your mouse to move and grab healthy foods like fruits, vegetables, and nutri
 Can you make the right choices and keep your life meter full? Test your skills, aim for the high score, and prove you can master the art of healthy eating in this fun and engaging game!
 
 Perfect for casual gamers and anyone who loves a good challenge.
+<br>
 
-Game Instruction
+## Game Instruction
 
 Objective:
 Collect healthy food to increase your life and survive as long as possible.
@@ -29,3 +30,5 @@ Prioritize healthy food to extend your gameplay and maximize your score.
 
 Game Over:
 The game ends when your life meter reaches zero. Try again to beat your best score!
+
+<br>
