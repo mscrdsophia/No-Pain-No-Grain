@@ -3,6 +3,7 @@ class Game {
       this.startScreen = document.getElementById("game-intro");
       this.gameScreen = document.getElementById("game-screen");
       this.gameEndScreen = document.getElementById("game-end");
+      this.winGameScreen = document.getElementById("win-game");
       this.player = new Player(this.gameScreen,
         200,
         500,
@@ -149,36 +150,12 @@ class Game {
 }
 if (this.health === 0){
   this.endGame();
+  this.gameEndScreen.style.display = "block"; 
 }
-//    let progress = 0;
-
-// function updateProgress(change, obstacleType) {
-    
-//     if (obstacleType == "obstacle"){
-//        progress += 5;
-//     }
-//     else if (obstacleType == "obstacle2"){
-//        progress += 7;
-//     }
-//     else if (obstacleType == "obstacle3"){
-//       progress += 10;
-//    }
-//     else if (obstacleType == "obstacle4"){
-//       progress -= 5;
-//     }
-//     else if (obstacleType == "obstacle5"){
-//       progress -= 7;
-//     }
-//     else if (obstacleType == "obstacle6"){
-//       progress -= 10;
-//     }
-//     progress = Math.max(0, Math.min(progress, 100));
-
-    
-//     const progressBar = document.getElementById("progress-bar");
-//     progressBar.style.width = `${progress}%`;     
-      
-// }
+else if (this.health === 20){
+  this.winGame();
+  this.winGameScreen.style.display = "block"; 
+}
 
 }
 checkCollision(player, obstacle){
@@ -209,14 +186,30 @@ endGame() {
 
   // Hide game screen
   this.gameScreen.style.display = "none";
-  // Show end game screen
-  this.gameEndScreen.style.display = "block"; 
+  
 
   const finalScoreElement = document.getElementById("final-score");
     finalScoreElement.textContent = this.score;
 
     this.gameScreen.style.display = "none";
     document.getElementById("game-container").style.display = "none";
-    document.getElementById("game-end").style.display = "flex";
+    
+}
+
+winGame(){
+  this.player.element.remove();
+  this.obstacles.forEach(obstacle => obstacle.element.remove());
+
+  this.gameIsOver = true;
+
+  // Hide game screen
+  this.gameScreen.style.display = "none";
+  
+
+  const finalScoreElement = document.getElementById("final-score");
+    finalScoreElement.textContent = this.score;
+
+    this.gameScreen.style.display = "none";
+    document.getElementById("game-container").style.display = "none";
 }
 }
