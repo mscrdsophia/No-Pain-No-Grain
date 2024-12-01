@@ -152,7 +152,7 @@ if (this.health === 0){
   this.endGame();
   this.gameEndScreen.style.display = "block"; 
 }
-else if (this.health === 20){
+else if (this.health === 100){
   this.winGame();
   this.winGameScreen.style.display = "block"; 
 }
