@@ -29,7 +29,7 @@ window.onload = function () {
 
     }
     
-    function handleKeydown(event) {
+     {
       const key = event.key;
       const possibleKeystrokes = [
         "ArrowLeft",

@@ -4,7 +4,7 @@
 
 Dive into a fast-paced and addictive game where your survival depends on your choices! Healthy Bites challenges your reflexes and decision-making skills as you collect food to stay alive.
 
-Use your arrow keys to move and grab healthy foods like fruits, vegetables, and nutritious snacks to boost your life. But beware! Tempting junk foods like burgers, chips, and sugary treats will drain your life. The longer you play, the higher your score—if you can stay alive!
+Use your arrow keys to move and grab healthy foods like meat, vegetables, and rice grain to boost your life. But beware! Tempting junk foods like hotdogs, fries, and sugary soda will drain your life.
 
 Can you make the right choices and keep your life meter full? Test your skills, aim for the high score, and prove you can master the art of healthy eating in this fun and engaging game!
 
@@ -20,16 +20,12 @@ Avoid collecting junk food, as it will decrease your life.
 Controls:
 Use the mouse to move your character or cursor.
 
-Scoring:
-Your score increases the longer you stay alive.
-The key to a high score is avoiding junk food and collecting as much healthy food as possible.
-
 Tips:
 Keep an eye on your life meter! It depletes quickly if you collect too much junk food.
 Prioritize healthy food to extend your gameplay and maximize your score.
 
 Game Over:
-The game ends when your life meter reaches zero. Try again to beat your best score!
+The game ends when your life meter reaches zero.
 
 <br>
 
@@ -61,3 +57,26 @@ The game ends when your life meter reaches zero. Try again to beat your best sco
 - updateScoreDisplay();
 - update();
 - checkCollision(player, obstacle);
+- checkOverlap(obstacle1, obstacle2);
+- endGame();
+- winGame()
+<br>
+
+## script.js
+- window.onload = function ();
+- function handleKeydown(event);
+<br>
+
+## obstacle.js
+- class Obstacle
+- class Obstacle2 extends Obstacle
+- class Obstacle3 extends Obstacle 
+- class Obstacle4 extends Obstacle
+- class Obstacle5 extends Obstacle 
+- class Obstacle6 extends Obstacle
+<br>
+
+## Links
+- [Kanban List](https://github.com/users/mscrdsophia/projects/1/views/1)
+- [Game Deploy](https://mscrdsophia.github.io/No-Pain-No-Grain/)
+- [Presentation]
