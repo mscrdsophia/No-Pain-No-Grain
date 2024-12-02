@@ -36,6 +36,7 @@
 h1{
     padding-bottom: 30px;
     
+    
 }
 .Objective{
     padding-bottom: 30px;
@@ -116,6 +117,7 @@ h1{
       font-family: "Rubik Puddles", cursive;
       color: #ffc107;
       backdrop-filter: blur(10px);
+      margin-top: 150px;
     }
 
   .end-message {
@@ -124,6 +126,7 @@ h1{
     font-family:"Rasa", serif; 
     color: #ffc107;
     backdrop-filter: blur(10px);
+    
   }
 
   .end-score {
@@ -145,6 +148,9 @@ h1{
     width: 100px;
     margin: 0;
     appearance: none;
+    display: flex;
+    justify-content: center;
+    margin-left: 678px;
   }
 
   #restart-button:hover {
@@ -184,6 +190,9 @@ h1{
       width: 100px;
       margin: 0;
       appearance: none;
+      display: flex;
+    justify-content: center;
+    margin-left: 678px;
     }
   
     #restart-button-win:hover {
@@ -198,6 +207,7 @@ h1{
     font-family: "Rubik Puddles", cursive;
     color: #ffc107;
     backdrop-filter: blur(10px);
+    margin-top: 150px;
   }
 
 .win-message {

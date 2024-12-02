@@ -38,7 +38,7 @@ window.onload = function () {
 
     }
     
-    function handleKeydown(event) {
+     /*{
       const key = event.key;
       const possibleKeystrokes = [
         "ArrowLeft",
@@ -67,7 +67,30 @@ window.onload = function () {
             break;
         }
       }
-    }
+    }*/
+      function handleKeydown(e) { // 'e' is the event object passed explicitly
+        const key = e.key;
+        const possibleKeystrokes = ["ArrowLeft", "ArrowUp", "ArrowRight", "ArrowDown"];
+        if (possibleKeystrokes.includes(key)) {
+          e.preventDefault(); // Explicitly use the event object
+          switch (key) {
+            case "ArrowLeft":
+              game.player.directionX = -1;
+              break;
+            case "ArrowUp":
+              game.player.directionY = -1;
+              break;
+            case "ArrowRight":
+              game.player.directionX = 1;
+              break;
+            case "ArrowDown":
+              game.player.directionY = 1;
+              break;
+          }
+        }
+      }
+      
+
   
     // Add the handleKeydown function as an event listener for the keydown event
     window.addEventListener("keydown", handleKeydown);
