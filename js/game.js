@@ -4,6 +4,8 @@ class Game {
       this.gameScreen = document.getElementById("game-screen");
       this.gameEndScreen = document.getElementById("game-end");
       this.winGameScreen = document.getElementById("win-game");
+      this.backgroundMusic = document.getElementById("background-music");
+      this.collisionSound = document.getElementById("collision-sound");
       this.player = new Player(this.gameScreen,
         200,
         500,
@@ -19,7 +21,8 @@ class Game {
       this.gameLoopFrequency = Math.round(1000/60); // 60fps
       this.health = 5;
     }
-  
+
+    
     start() {
       // Set the height and width of the game screen
       this.gameScreen.style.height = `${this.height}px`;
@@ -36,7 +39,7 @@ class Game {
 
       this.startScoreTimer();
     }
-  
+
     gameLoop() {
       console.log("in the game loop");
       if (this.gameIsOver) return;
@@ -45,6 +48,16 @@ class Game {
       requestAnimationFrame(() => this.gameLoop());
 
     }
+
+    startMusic() {
+      this.backgroundMusic.volume = 0.5; 
+      this.backgroundMusic.play();
+  }
+  
+      stopMusic() {
+      this.backgroundMusic.pause();
+      this.backgroundMusic.currentTime = 0; 
+  }
 
     startScoreTimer() {
       this.scoreIntervalId = setInterval(() => {
@@ -90,7 +103,6 @@ class Game {
           progressBar.style.width = `${this.health}%`;
       }
       
-
    update() { // keep track of the different parts of the game updates
       console.log("in the update");
       this.player.move();
@@ -100,7 +112,9 @@ class Game {
             obstacle.move();
         
             if (this.player.didCollide(obstacle)) {
-                this.updateHealth(obstacle.type); // Pass the obstacle type
+              this.collisionSound.currentTime = 0; 
+              this.collisionSound.play();
+              this.updateHealth(obstacle.type); 
         
                 // Remove the obstacle
                 obstacle.element.remove();
@@ -152,12 +166,14 @@ if (this.health === 0){
   this.endGame();
   this.gameEndScreen.style.display = "block"; 
 }
+
 else if (this.health === 100){
   this.winGame();
   this.winGameScreen.style.display = "block"; 
 }
 
 }
+
 checkCollision(player, obstacle){
   if (
     player.x < obstacle.x + obstacle.width &&
@@ -166,7 +182,8 @@ checkCollision(player, obstacle){
     player.y + player.height > obstacle.y
 ) {
   updateProgress(obstacle.type);
- }
+  
+ }  
 
   }
 
@@ -183,6 +200,7 @@ endGame() {
   this.obstacles.forEach(obstacle => obstacle.element.remove());
 
   this.gameIsOver = true;
+  this.stopMusic(); 
 
   // Hide game screen
   this.gameScreen.style.display = "none";
@@ -201,7 +219,7 @@ winGame(){
   this.obstacles.forEach(obstacle => obstacle.element.remove());
 
   this.gameIsOver = true;
-
+  this.stopMusic();   
   // Hide game screen
   this.gameScreen.style.display = "none";
   
@@ -212,4 +230,6 @@ winGame(){
     this.gameScreen.style.display = "none";
     document.getElementById("game-container").style.display = "none";
 }
+
+
 }
