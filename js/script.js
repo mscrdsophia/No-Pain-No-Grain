@@ -2,11 +2,20 @@ window.onload = function () {
     const startButton = document.getElementById("start-btn");
     const restartButton = document.getElementById("restart-button");
     const restartButtonWin = document.getElementById("restart-button-win");
+    const buttonClickSound = document.getElementById("button-click-sound");
+    const backgroundMusic = document.getElementById("background-music");
     let game;
-  
+    
+    function playButtonClickSound() {
+      buttonClickSound.currentTime = 0;
+      buttonClickSound.play();
+  }
     startButton.addEventListener("click", function () {
+      playButtonClickSound();
       startGame();
+      startMusic();
     });
+
 
     restartButton.addEventListener("click", function () {
       // Call the restartGame function when the button is clicked
@@ -62,7 +71,12 @@ window.onload = function () {
   
     // Add the handleKeydown function as an event listener for the keydown event
     window.addEventListener("keydown", handleKeydown);
-  };
+
+function startMusic() {
+    backgroundMusic.volume = 0.5; 
+    backgroundMusic.play();
+} 
+};
 
 // let progress = 5;
 
