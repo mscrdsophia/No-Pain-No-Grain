@@ -12,8 +12,8 @@ class Game {
         100,
         150,
         "./images/newBowl.png");
-      this.height = 1000;
-      this.width = 1000;
+      this.height = window.innerHeight;
+      this.width = window.innerWidth; 
       this.obstacles = [];
       this.score = 0;
       this.gameIsOver = false;
