@@ -19,11 +19,17 @@ window.onload = function () {
 
     restartButton.addEventListener("click", function () {
       // Call the restartGame function when the button is clicked
+      playButtonClickSound();
       restartGame();
+      
+      
+    
     });
 
     restartButtonWin.addEventListener("click", function () {
+      playButtonClickSound();
       restartGame();
+     
     });
 
     function restartGame() {
@@ -96,7 +102,7 @@ window.onload = function () {
     window.addEventListener("keydown", handleKeydown);
 
 function startMusic() {
-    backgroundMusic.volume = 0.5; 
+    backgroundMusic.volume = 0.2; 
     backgroundMusic.play();
 } 
 };
