@@ -12,18 +12,18 @@ class Obstacle {
           
           this.element.src = 
           type === "obstacle" 
-          ? "/images/grainsOfRice.png" 
+          ? "./images/grainsOfRice.png" 
           : type === "obstacle2" 
-          ? "/images/vegetable.png"
+          ? "./images/vegetable.png"
           : type === "obstacle3" 
-          ? "/images/beef.png"
+          ? "./images/beef.png"
           : type === "obstacle4"
-          ? "/images/fries.png"
+          ? "./images/fries.png"
           : type === "obstacle5"
-          ? "/images/cola.png"
+          ? "./images/cola.png"
           : type === "obstacle6"
-          ? "/images/hotDog.png"
-          : "/images/default.png";
+          ? "./images/hotDog.png"
+          : "./images/default.png";
   
           this.element.style.position = "absolute";
           this.element.style.width = `${this.width}px`;
