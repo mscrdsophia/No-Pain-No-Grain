@@ -11,7 +11,7 @@ class Game {
         500,
         100,
         150,
-        "../images/newBowl.png");
+        "./images/newBowl.png");
       this.height = 1000;
       this.width = 1000;
       this.obstacles = [];
