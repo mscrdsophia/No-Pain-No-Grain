@@ -14,18 +14,31 @@ Perfect for casual gamers and anyone who loves a good challenge.
 ## Game Instruction
 
 Objective:
-Collect healthy food to increase your life and survive as long as possible.
+Collect healthy food to increase your life.
 Avoid collecting junk food, as it will decrease your life.
 
 Controls:
-Use the mouse to move your character or cursor.
+Use the arrow keys to move your bowl.
 
 Tips:
 Keep an eye on your life meter! It depletes quickly if you collect too much junk food.
-Prioritize healthy food to extend your gameplay and maximize your score.
 
 Game Over:
-The game ends when your life meter reaches zero.
+The game ends when your health meter reaches zero.
+
+Win the game:
+You win the game when your health meter reaches 100%.
+
+Scoring:
+Your score depends on what healthy foods you obtain.
+Rice grain = 5 points
+Vegetables = 7 points
+Meat = 10 points
+
+Your score also decreased if you obtain unhealthy foods.
+Fries = -5 points
+Soda = -7 points
+Hotdog = -10points
 
 <br>
 
@@ -52,9 +65,10 @@ The game ends when your life meter reaches zero.
 ## game.js
 - start();
 - gameLoop();
-- startScoreTimer();
-- stopScoreTimer();
+- startMusic();
+- stopMusic();
 - updateScoreDisplay();
+- updateHealth(obstacleType);
 - update();
 - checkCollision(player, obstacle);
 - checkOverlap(obstacle1, obstacle2);
@@ -64,7 +78,8 @@ The game ends when your life meter reaches zero.
 
 ## script.js
 - window.onload = function ();
-- function handleKeydown(event);
+- function handleKeydown(e);
+- function startMusic();
 <br>
 
 ## obstacle.js
@@ -79,4 +94,4 @@ The game ends when your life meter reaches zero.
 ## Links
 - [Kanban List](https://github.com/users/mscrdsophia/projects/1/views/1)
 - [Game Deploy](https://mscrdsophia.github.io/No-Pain-No-Grain/)
-- [Presentation]
+- [Presentation](https://docs.google.com/presentation/d/1_OaO8qKosevlaBNwZYaEiFCViwj_mAzNL1uFnJP35LY/edit#slide=id.p) 
