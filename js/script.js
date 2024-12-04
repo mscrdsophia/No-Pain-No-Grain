@@ -102,7 +102,7 @@ window.onload = function () {
     window.addEventListener("keydown", handleKeydown);
 
 function startMusic() {
-    backgroundMusic.volume = 0.2; 
+    backgroundMusic.volume = 0.4; 
     backgroundMusic.play();
 } 
 };
