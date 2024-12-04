@@ -37,7 +37,7 @@ class Game {
 
       this.gameLoop();
 
-      this.startScoreTimer();
+      /*this.startScoreTimer();*/
     }
 
     gameLoop() {
@@ -59,7 +59,7 @@ class Game {
       this.backgroundMusic.currentTime = 0; 
   }
 
-    startScoreTimer() {
+   /* startScoreTimer() {
       this.scoreIntervalId = setInterval(() => {
         if (!this.gameIsOver) {
           this.score++;
@@ -70,7 +70,7 @@ class Game {
 
     stopScoreTimer() {
       clearInterval(this.scoreIntervalId);
-    }
+    }*/
     
     updateScoreDisplay() {
       const scoreElement = document.getElementById("score"); 
@@ -114,7 +114,7 @@ class Game {
             if (this.player.didCollide(obstacle)) {
               this.collisionSound.currentTime = 0; 
               this.collisionSound.play();
-              this.updateHealth(obstacle.type); 
+             /* this.updateHealth(obstacle.type); 
         
                 // Remove the obstacle
                 obstacle.element.remove();
@@ -125,7 +125,45 @@ class Game {
                 obstacle.element.remove();
                 this.obstacles.splice(i, 1);
                 i--;
-            }
+            }*/
+           // Update health based on obstacle type
+  this.updateHealth(obstacle.type);
+
+  // Update score based on obstacle type
+  if (obstacle.type === "obstacle") {
+    this.score += 5;
+  } else if (obstacle.type === "obstacle2") {
+    this.score += 7;
+  } else if (obstacle.type === "obstacle3") {
+    this.score += 10;
+  }
+  else if (obstacle.type == "obstacle4"){
+    this.score -= 5;
+  }
+  else if (obstacle.type == "obstacle5"){
+    this.score -= 7;
+  }
+  else if (obstacle.type == "obstacle6"){
+    this.score -= 10;
+  }
+
+  this.updateScoreDisplay();
+
+  // Remove the obstacle
+  obstacle.element.remove();
+  this.obstacles.splice(i, 1);
+  i--;
+} else if (obstacle.top > this.height) {
+  // Increment score for avoiding an obstacle
+  this.score;
+  this.updateScoreDisplay();
+
+  // Remove the obstacle
+  obstacle.element.remove();
+  this.obstacles.splice(i, 1);
+  i--;
+}
+
 
         }
       
