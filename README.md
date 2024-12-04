@@ -67,6 +67,8 @@ Your score also decreased if you obtain unhealthy foods.
 - gameLoop();
 - startMusic();
 - stopMusic();
+- startYaySound();
+- startGameoverAudio();
 - updateScoreDisplay();
 - updateHealth(obstacleType);
 - update();

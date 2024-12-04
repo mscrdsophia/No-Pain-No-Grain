@@ -6,6 +6,8 @@ class Game {
       this.winGameScreen = document.getElementById("win-game");
       this.backgroundMusic = document.getElementById("background-music");
       this.collisionSound = document.getElementById("collision-sound");
+      this.yaySound = document.getElementById("yayy-page");
+      this.gameOverAudio = document.getElementById("game-over-audio");
       this.player = new Player(this.gameScreen,
         200,
         500,
@@ -71,6 +73,16 @@ class Game {
     stopScoreTimer() {
       clearInterval(this.scoreIntervalId);
     }*/
+
+      startYaySound(){
+        this.yaySound.volume = 0.5;
+        this.yaySound.play();
+      }
+
+      startGameoverAudio(){
+        this.gameOverAudio.volume = 0.5;
+        this.gameOverAudio.play();
+      }
     
     updateScoreDisplay() {
       const scoreElement = document.getElementById("score"); 
@@ -208,6 +220,7 @@ if (this.health === 0){
 else if (this.health === 100){
   this.winGame();
   this.winGameScreen.style.display = "block"; 
+  
 }
 
 }
@@ -239,6 +252,7 @@ endGame() {
 
   this.gameIsOver = true;
   this.stopMusic(); 
+  this.startGameoverAudio();
 
   // Hide game screen
   this.gameScreen.style.display = "none";
@@ -257,7 +271,8 @@ winGame(){
   this.obstacles.forEach(obstacle => obstacle.element.remove());
 
   this.gameIsOver = true;
-  this.stopMusic();   
+  this.stopMusic();  
+  this.startYaySound(); 
   // Hide game screen
   this.gameScreen.style.display = "none";
   
