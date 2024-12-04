@@ -31,14 +31,14 @@ You win the game when your health meter reaches 100%.
 
 Scoring:
 Your score depends on what healthy foods you obtain.
-Rice grain = 5 points
-Vegetables = 7 points
-Meat = 10 points
+- Rice grain = 5 points
+- Vegetables = 7 points
+- Meat = 10 points
 
 Your score also decreased if you obtain unhealthy foods.
-Fries = -5 points
-Soda = -7 points
-Hotdog = -10points
+- Fries = -5 points
+- Soda = -7 points
+- Hotdog = -10points
 
 <br>
 
