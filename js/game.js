@@ -26,20 +26,16 @@ class Game {
 
     
     start() {
-      // Set the height and width of the game screen
       this.gameScreen.style.height = `${this.height}px`;
       this.gameScreen.style.width = `${this.width}px`;
   
-      // Hide the start screen
       this.startScreen.style.display = "none";
       document.getElementById("game-container").style.display = 'flex';
       
-      // Show the game screen
       this.gameScreen.style.display = "block";
 
       this.gameLoop();
 
-      /*this.startScoreTimer();*/
     }
 
     gameLoop() {
@@ -60,19 +56,6 @@ class Game {
       this.backgroundMusic.pause();
       this.backgroundMusic.currentTime = 0; 
   }
-
-   /* startScoreTimer() {
-      this.scoreIntervalId = setInterval(() => {
-        if (!this.gameIsOver) {
-          this.score++;
-          this.updateScoreDisplay();
-        }
-      }, 100); 
-    }
-
-    stopScoreTimer() {
-      clearInterval(this.scoreIntervalId);
-    }*/
 
       startYaySound(){
         this.yaySound.volume = 0.5;
@@ -115,7 +98,7 @@ class Game {
           progressBar.style.width = `${this.health}%`;
       }
       
-   update() { // keep track of the different parts of the game updates
+   update() { 
       console.log("in the update");
       this.player.move();
      
@@ -126,22 +109,10 @@ class Game {
             if (this.player.didCollide(obstacle)) {
               this.collisionSound.currentTime = 0; 
               this.collisionSound.play();
-             /* this.updateHealth(obstacle.type); 
-        
-                // Remove the obstacle
-                obstacle.element.remove();
-                this.obstacles.splice(i, 1);
-                i--;
-            } else if (obstacle.top > this.height) {
-                this.score++;
-                obstacle.element.remove();
-                this.obstacles.splice(i, 1);
-                i--;
-            }*/
-           // Update health based on obstacle type
+             
   this.updateHealth(obstacle.type);
 
-  // Update score based on obstacle type
+  
   if (obstacle.type === "obstacle") {
     this.score += 5;
   } else if (obstacle.type === "obstacle2") {
@@ -161,23 +132,19 @@ class Game {
 
   this.updateScoreDisplay();
 
-  // Remove the obstacle
+ 
   obstacle.element.remove();
   this.obstacles.splice(i, 1);
   i--;
 } else if (obstacle.top > this.height) {
-  // Increment score for avoiding an obstacle
   this.score;
   this.updateScoreDisplay();
 
-  // Remove the obstacle
   obstacle.element.remove();
   this.obstacles.splice(i, 1);
   i--;
+}       
 }
-
-
-        }
       
       
          
@@ -186,7 +153,6 @@ class Game {
             const randomType = Math.random();
             let newObstacle;
     
-            // Decide obstacle type
             if (randomType < 0.4) {
                 newObstacle = new Obstacle(this.gameScreen, "obstacle");
             } else if (randomType < 0.6) {
@@ -202,13 +168,11 @@ class Game {
               newObstacle = new Obstacle6(this.gameScreen);
             }
 
-    // Ensure no overlap before adding the new obstacle
     const isOverlapping = this.obstacles.some((obstacle) => this.checkOverlap(obstacle, newObstacle));
 
     if (!isOverlapping) {
         this.obstacles.push(newObstacle);
     } else {
-        // Remove the newObstacle DOM element if it overlaps
         newObstacle.element.remove();
     }
 }
@@ -240,10 +204,10 @@ checkCollision(player, obstacle){
 
   checkOverlap(obstacle1, obstacle2) {
     return !(
-        obstacle1.left + obstacle1.width < obstacle2.left || // Obstacle1 is to the left
-        obstacle1.left > obstacle2.left + obstacle2.width || // Obstacle1 is to the right
-        obstacle1.top + obstacle1.height < obstacle2.top || // Obstacle1 is above
-        obstacle1.top > obstacle2.top + obstacle2.height    // Obstacle1 is below
+        obstacle1.left + obstacle1.width < obstacle2.left || 
+        obstacle1.left > obstacle2.left + obstacle2.width || 
+        obstacle1.top + obstacle1.height < obstacle2.top || 
+        obstacle1.top > obstacle2.top + obstacle2.height    
     );
 }
 endGame() {
@@ -254,7 +218,6 @@ endGame() {
   this.stopMusic(); 
   this.startGameoverAudio();
 
-  // Hide game screen
   this.gameScreen.style.display = "none";
   
 
@@ -273,7 +236,7 @@ winGame(){
   this.gameIsOver = true;
   this.stopMusic();  
   this.startYaySound(); 
-  // Hide game screen
+  
   this.gameScreen.style.display = "none";
   
 
